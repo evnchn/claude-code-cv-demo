@@ -1,8 +1,13 @@
+from pathlib import Path
 from PIL import Image
 import numpy as np
 from scipy.ndimage import label
 
-img = Image.open("mysterious.png").convert("RGBA")
+ROOT = Path(__file__).parent.parent
+INPUT = ROOT / "images" / "input"
+OUTPUT = ROOT / "images" / "output"
+
+img = Image.open(INPUT / "mysterious.png").convert("RGBA")
 data = np.array(img)
 
 # Sample background color from top-left corner
@@ -69,5 +74,5 @@ star_mask = (labeled != largest_component) & (labeled != 0)
 data[star_mask, 3] = 0
 
 result = Image.fromarray(data)
-result.save("mysterious_no_bg.png")
-print("\nSaved to mysterious_no_bg.png")
+result.save(OUTPUT / "mysterious_no_bg.png")
+print(f"\nSaved to {OUTPUT / 'mysterious_no_bg.png'}")

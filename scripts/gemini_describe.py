@@ -4,7 +4,10 @@ from pathlib import Path
 from openai import OpenAI
 from dotenv import load_dotenv
 
-load_dotenv()
+ROOT = Path(__file__).parent.parent
+OUTPUT = ROOT / "images" / "output"
+
+load_dotenv(ROOT / ".env")
 
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
@@ -22,12 +25,12 @@ def encode_image(image_path: str) -> str:
 
 
 images = [
-    ("mysterious_no_bg.png", "Nyan Cat (background removed)"),
-    ("yolo_bus_result.jpg", "YOLO bus detection result"),
+    (OUTPUT / "mysterious_no_bg.png", "Nyan Cat (background removed)"),
+    (OUTPUT / "yolo_bus_result.jpg", "YOLO bus detection result"),
 ]
 
-for filename, label in images:
-    filepath = f"/Users/evnchn/ClaudeCodeCV/{filename}"
+for filepath, label in images:
+    filename = filepath.name
     print(f"\n{'='*60}")
     print(f"Image: {label} ({filename})")
     print(f"{'='*60}")

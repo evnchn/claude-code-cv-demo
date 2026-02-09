@@ -9,7 +9,11 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from PIL import Image, ImageDraw, ImageFont
 
-load_dotenv()
+ROOT = Path(__file__).parent.parent
+INPUT = ROOT / "images" / "input"
+OUTPUT = ROOT / "images" / "output"
+
+load_dotenv(ROOT / ".env")
 
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
@@ -138,12 +142,12 @@ def draw_bounding_boxes(image_path: str, detections: list, output_path: str):
 
 # Run on both images
 images = [
-    ("/Users/evnchn/ClaudeCodeCV/mysterious_no_bg.png", "gemini_bbox_nyancat.png"),
-    ("/Users/evnchn/ClaudeCodeCV/bus.jpg", "gemini_bbox_bus.jpg"),
+    (OUTPUT / "mysterious_no_bg.png", "gemini_bbox_nyancat.png"),
+    (INPUT / "bus.jpg", "gemini_bbox_bus.jpg"),
 ]
 
 for image_path, output_name in images:
-    output_path = f"/Users/evnchn/ClaudeCodeCV/{output_name}"
+    output_path = str(OUTPUT / output_name)
     print(f"\n{'='*60}")
     print(f"Detecting objects in: {Path(image_path).name}")
     print(f"{'='*60}")
