@@ -1,0 +1,8 @@
+ultralytics
+openai
+python-dotenv
+Pillow
+scipy
+numpy
+weasyprint
+markdown

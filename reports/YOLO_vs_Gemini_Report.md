@@ -259,4 +259,10 @@ results = model("image.jpg")
 
 ---
 
+## TL;DR
+
+YOLO26 is **40-1,000x faster** and **orders of magnitude cheaper** at scale, with deterministic, calibrated outputs — ideal for real-time and high-volume detection of known object classes. Gemini 3 Flash offers **open-vocabulary detection**, **rich semantic descriptions**, and **zero-shot generalization** to novel objects — ideal for exploratory analysis and domains lacking training data. For production systems like Scaffluent, **use both**: YOLO for real-time detection of known defects, Gemini for semantic understanding and novel object handling.
+
+---
+
 *Report generated from hands-on experiments on MacBook M4. All benchmark numbers are from official Ultralytics documentation and OpenRouter API measurements.*

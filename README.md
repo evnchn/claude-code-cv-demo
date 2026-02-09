@@ -4,8 +4,8 @@ A hands-on demonstration of computer vision and AI integration skills, built ent
 
 ## Reports
 
-- [YOLO26 vs Gemini 3 Flash Comparison](reports/YOLO_vs_Gemini_Report.md) — 5-metric deep dive (performance, cost, adaptability, accuracy, ease of use)
-- [Claude Skills Report](reports/Claude_Skills_Report.md) — Demonstrated and further hard/soft skills tied to Scaffluent's architecture
+- [YOLO26 vs Gemini 3 Flash Comparison](reports/YOLO_vs_Gemini_Report.md) ([PDF](reports/YOLO_vs_Gemini_Report.pdf)) — 5-metric deep dive (performance, cost, adaptability, accuracy, ease of use)
+- [Claude Skills Report](reports/Claude_Skills_Report.md) ([PDF](reports/Claude_Skills_Report.pdf)) — Demonstrated and further hard/soft skills tied to Scaffluent's architecture
 
 ## Scripts
 
@@ -17,6 +17,7 @@ A hands-on demonstration of computer vision and AI integration skills, built ent
 | [gemini_describe.py](scripts/gemini_describe.py) | Gemini 3 Flash image description via OpenRouter (OpenAI SDK) |
 | [gemini_structured.py](scripts/gemini_structured.py) | Gemini 3 Flash with enforced JSON schema output |
 | [gemini_bbox.py](scripts/gemini_bbox.py) | Gemini 3 Flash bounding box detection + PIL visualization |
+| [render_pdf.py](scripts/render_pdf.py) | Render Markdown reports to PDF via weasyprint |
 
 ## Images
 
@@ -39,7 +40,7 @@ A hands-on demonstration of computer vision and AI integration skills, built ent
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install ultralytics openai python-dotenv Pillow scipy numpy
+pip install -r requirements.txt
 ```
 
 Create a `.env` file with your OpenRouter API key:
