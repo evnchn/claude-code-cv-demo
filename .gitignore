@@ -4,3 +4,12 @@ __pycache__/
 *.pyc
 yolo26n.pt
 Scaffluent_meeting_notes.md
+
+# Net removal outputs — keep only comparison grids
+images/output/net_removal/**/coarse.jpg
+images/output/net_removal/**/colour_corrected.jpg
+images/output/net_removal/**/combo.jpg
+images/output/net_removal/**/strand_inpainted.jpg
+images/output/net_removal/**/fft.png
+images/output/net_removal/**/mask.png
+images/output/net_removal/**/strand_mask.png

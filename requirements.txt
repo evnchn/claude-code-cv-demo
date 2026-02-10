@@ -6,3 +6,4 @@ scipy
 numpy
 weasyprint
 markdown
+opencv-python

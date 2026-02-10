@@ -11,6 +11,7 @@ A hands-on demonstration of computer vision and AI integration skills, built ent
 
 | Script | Description |
 |--------|-------------|
+| [net_removal.py](scripts/net_removal.py) | **Net occlusion removal** — L1→L2→L3 pipeline: detect safety netting via HSV colour segmentation, generate strand masks, reconstruct underlying structure via colour correction + inpainting |
 | [remove_bg.py](scripts/remove_bg.py) | Background removal via flood-fill + connected component analysis |
 | [run_yolo.py](scripts/run_yolo.py) | YOLO26 Nano detection on the Nyan Cat image |
 | [run_yolo_bus.py](scripts/run_yolo_bus.py) | YOLO26 Nano detection on a Madrid bus street scene |
@@ -27,7 +28,24 @@ A hands-on demonstration of computer vision and AI integration skills, built ent
 | Nyan Cat pixel art | Madrid bus scene |
 | ![mysterious.png](images/input/mysterious.png) | ![bus.jpg](images/input/bus.jpg) |
 
-### Output
+### Net Occlusion Removal
+
+Removes safety netting from construction site images to reveal underlying scaffolding structure. Each comparison grid shows: original → region mask → strand mask → colour-corrected → strand-inpainted → combined (best).
+
+**User-sourced samples** (close-up, 58–80% net coverage):
+
+| | |
+|---|---|
+| ![mysample](images/output/net_removal/user_sourced/construction-safety-net-mysample/comparison.jpg) | ![HX4004](images/output/net_removal/user_sourced/HX4004-1/comparison.jpg) |
+| ![fall-protection](images/output/net_removal/user_sourced/scaffold-net-fall-protection/comparison.jpg) | ![building-construction](images/output/net_removal/user_sourced/Construction-Safety-Net-for-Buliding-Construction-with-High-Quality/comparison.jpg) |
+
+**Claude-sourced samples** (Wikimedia Commons, 19–25% net coverage):
+
+| | |
+|---|---|
+| ![hk_construction](images/output/net_removal/claude_sourced/scaffold_net_hk_construction/comparison.jpg) | ![hk_highrise](images/output/net_removal/claude_sourced/scaffold_net_hk_highrise/comparison.jpg) |
+
+### Other Output
 | | |
 |---|---|
 | Background removed | YOLO26 detection |
@@ -54,5 +72,6 @@ YOLO26 model weights (`yolo26n.pt`) are auto-downloaded on first run.
 
 - **YOLO26 Nano** — Local real-time object detection (Ultralytics)
 - **Gemini 3 Flash** — Zero-shot VLM detection via OpenRouter API
+- **OpenCV** — HSV segmentation, morphological masking, inpainting (Telea/Navier-Stokes)
 - **PIL/Pillow + SciPy** — Image processing and visualization
 - **Python 3.14** — MacBook M4, bare-metal CPU inference
